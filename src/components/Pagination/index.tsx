@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 export default function Pagination({ pagination, onPageChange }: any) {
   const { page, limit, total } = pagination;
@@ -12,15 +13,19 @@ export default function Pagination({ pagination, onPageChange }: any) {
 
   return (
     <div>
-      <button disabled={page === 1} onClick={() => handlePageChange(page - 1)}>
+      <Button
+        disabled={page === 1}
+        onClick={() => handlePageChange(page - 1)}
+        style={{ marginRight: "10px" }}
+      >
         Prev
-      </button>
-      <button
+      </Button>
+      <Button
         disabled={page === totalPage}
         onClick={() => handlePageChange(page + 1)}
       >
         Next
-      </button>
+      </Button>
     </div>
   );
 }
